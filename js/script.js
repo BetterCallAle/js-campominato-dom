@@ -41,18 +41,20 @@ playBtn.addEventListener("click", function(){
         square.innerHTML = i
         //add the difficulty class
         square.classList.add(userDifficulty)
-        //on click add the "active" class 
+
+        //on click reveals bomb || add active class
         square.addEventListener("click", function(){
 
-            let isTheSquareClicked = true
-
+            //if the user click on element with innerHTML === bombs
             if(bombs.includes(parseInt(this.innerHTML))){
-                //create the div fot blocking click
-                const wall = createElement("wall");
-                //add the bomb class to everyElement with the bomb number
+               //create the div fot blocking click
+               const wall = createElement("wall");
+               //add the bomb class to everyElement with the bomb number
                for (let j = 0; j < bombs.length; j++) {
                 const thisIndex = bombs[j];
+                //exctracting the elements with the id previously given
                 const element = document.getElementById(thisIndex)
+                //add the bomb class
                 element.classList.add("bomb")
                }
                
@@ -63,17 +65,22 @@ playBtn.addEventListener("click", function(){
                message.classList.add("result-message")
                message.classList.add("lose")
                wall.append(message)
+
+               //if the user win
             } else if (score === squareNumbers - bombs.length){
                //create a div for blocking the click
                gridWrapper.append(wall)
-                //create the "you win" message
+               //create the "you win" message
                message.innerHTML = `Complimenti! hai vinto!. Il tuo punteggio è ${score}`
                message.classList.add("result-message")
                message.classList.add("win")
                wall.append(message)
+
+               //when the user does not click on a bomb
             } else {
                     this.classList.add("active")
                     score++
+
             }
 
             console.log(score)
@@ -83,6 +90,9 @@ playBtn.addEventListener("click", function(){
     }
 
 })
+
+
+
 
 //FUNCTIONS
 //extract elements
