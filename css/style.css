@@ -89,6 +89,10 @@ header .play button{
     background-color: aqua;
 }
 
+.bomb{
+    background-color: red;
+}
+
 /* FOOTER */
 footer{
     height: 50px;

@@ -27,7 +27,26 @@ playBtn.addEventListener("click", function(){
     console.log(bombs);
 
     //create the squares with number inside the gridWrapper
-    generateGrid(squareNumbers, userDifficulty);
+    for (let i = 1; i <= squareNumbers; i++) {
+        
+        //create square elements
+        const square = createElement("square");
+        //add the number inside
+        square.innerHTML = i
+        //add the difficulty class
+        square.classList.add(userDifficulty)
+        //on click add the "active" class 
+        square.addEventListener("click", function(){
+            if(bombs.includes(parseInt(this.innerHTML))){
+                this.classList.add("bomb")
+            } else{
+                this.classList.toggle("active")
+            }
+
+        })
+        //stamp on the gridWrapper element
+        gridWrapper.append(square)
+    }
 
 })
 
