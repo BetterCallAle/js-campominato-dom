@@ -23,6 +23,9 @@ playBtn.addEventListener("click", function(){
         userDifficulty = "hard";
     }
 
+    const bombs = giveAnArrayWithRndNum(squareNumbers)
+    console.log(bombs);
+
     //create the squares with number inside the gridWrapper
     generateGrid(squareNumbers, userDifficulty);
 
@@ -34,6 +37,29 @@ playBtn.addEventListener("click", function(){
 function extractElements(elementId){
     const elementExtracted = document.getElementById(elementId);
     return elementExtracted
+}
+
+//genearate a random number
+function getARandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+//generate an array with 16 random number (not duplicated)
+function giveAnArrayWithRndNum(numbersOfSquares){
+    
+    const randomArray = [];
+
+    //create a while cycle for pushing 16 numbers in the array
+    while (randomArray.length < 16) {
+        const randomNumber = getARandomNumber(1, numbersOfSquares)
+
+        //check if there are not duplicates
+        if(!randomArray.includes(randomNumber)){
+            randomArray.push(randomNumber)
+        }
+    }
+
+    return randomArray
 }
 
 //UI FUNCTIONS
