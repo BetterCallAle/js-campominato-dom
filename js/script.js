@@ -23,14 +23,20 @@ playBtn.addEventListener("click", function(){
         userDifficulty = "hard";
     }
 
+    //create bombs
     const bombs = giveAnArrayWithRndNum(squareNumbers)
     console.log(bombs);
-
+    //create the element for the message win/lose
+    const Message = document.createElement("h2")
+    //set the score
+    let score = 0 
     //create the squares with number inside the gridWrapper
     for (let i = 1; i <= squareNumbers; i++) {
         
         //create square elements
         const square = createElement("square");
+        //give an id for each element
+        square.setAttribute("id", i)
         //add the number inside
         square.innerHTML = i
         //add the difficulty class
@@ -38,18 +44,34 @@ playBtn.addEventListener("click", function(){
         //on click add the "active" class 
         square.addEventListener("click", function(){
             if(bombs.includes(parseInt(this.innerHTML))){
-                this.classList.add("bomb")
-            } else{
-                this.classList.toggle("active")
+                //add the bomb class to everyElement with the bomb number
+               for (let j = 0; j < bombs.length; j++) {
+                const thisIndex = bombs[j];
+                const element = document.getElementById(thisIndex)
+                element.classList.add("bomb")
+               }
+               //create the "you lose" message
+               Message.innerHTML = `Mi dispiace! hai perso. Il tuo punteggio è ${score}`
+               Message.classList.add("result-message")
+               gridWrapper.append(Message)
+
+            } else if (score === squareNumbers - bombs.length){
+                //create the "you win" message
+               Message.innerHTML = `Complimenti! hai vinto!. Il tuo punteggio è ${score}`
+               Message.classList.add("result-message")
+               gridWrapper.append(Message)
+            } else {
+                this.classList.add("active")
+                score++
             }
 
+            console.log(score)
         })
         //stamp on the gridWrapper element
         gridWrapper.append(square)
     }
 
 })
-
 
 //FUNCTIONS
 //extract elements
