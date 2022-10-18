@@ -44,11 +44,12 @@ playBtn.addEventListener("click", function(){
 
         //on click reveals bomb || add active class
         square.addEventListener("click", function(){
-
+            
+            //create the div fot blocking click
+            const wall = createElement("wall");
+            
             //if the user click on element with innerHTML === bombs
             if(bombs.includes(parseInt(this.innerHTML))){
-               //create the div fot blocking click
-               const wall = createElement("wall");
                //add the bomb class to everyElement with the bomb number
                for (let j = 0; j < bombs.length; j++) {
                 const thisIndex = bombs[j];
@@ -80,7 +81,6 @@ playBtn.addEventListener("click", function(){
             } else {
                     this.classList.add("active")
                     score++
-
             }
 
             console.log(score)
