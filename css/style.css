@@ -1,0 +1,96 @@
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* COMMON */
+html{
+    font-family: sans-serif;
+}
+
+/* HEADER */
+header{
+    height: 100px;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img{
+    width: 5%;
+    vertical-align: middle;
+}
+
+header .logo h1{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header .play{
+    width: 30%;
+    text-align: center;
+}
+
+header .play button{
+    font-size: .8rem;
+    padding: 0 2rem;
+    margin-left: 1rem;
+}
+
+/* MAIN */
+.game-title{
+    font-size: 1.4rem;
+    line-height: 600px;
+}
+
+.container{
+    width: 100%;
+    height: calc(100vh - 100px - 50px);
+    display: flex;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+.grid-wrapper{
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.easy{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.medium{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+.hard{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
+
+.active{
+    background-color: aqua;
+}
+
+/* FOOTER */
+footer{
+    height: 50px;
+    padding: 1rem;
+}
